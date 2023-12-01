@@ -1,118 +1,52 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {  Text,  StatusBar,} from 'react-native';
+import { Home, Search } from './src/pages';
+import {NavigationContainer} from "@react-navigation/native";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const Stack = createBottomTabNavigator();
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
+const App=()=>{
+  return(
+    <>
+    <StatusBar barStyle="dark-content" backgroundColor="#00aaff"/>
+    <NavigationContainer >
+      <Stack.Navigator 
+      screenOptions={({route})=>({
+        tabBarIcon:({color})=>{
+          let iconName
+          if(route.name==="Home"){
+            iconName='home-city'
+          
+          }
+          else if(route.name==="Search")
           {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
+            iconName='home-search'
+           
+          }
+          return <MaterialCommunityIcons name={iconName} size={30} color={color}/>
+        },
+       headerShown: false,
+       tabBarActiveBackgroundColor:"white",
+       tabBarInactiveTintColor:"grey",
+       tabBarActiveTintColor:"#00aaff"
+      })}
+      >
+        <Stack.Screen name="Home"  component={Home} initialParams={{city:"london"}} />
+        <Stack.Screen name="Search" component={Search} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    </>
+  )
 }
-
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
+
+
+// tabBarOptions={{
+//   activeBackgroundColor:'white',
+//   inactiveTintColor:'grey',
+//   activeTintColor:"#00aaff"
+  
+// }}
