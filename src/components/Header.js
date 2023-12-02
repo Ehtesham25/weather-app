@@ -1,9 +1,6 @@
+import { Appbar } from 'react-native-paper';
 
-import  React from 'react';
-import { Appbar,Title } from 'react-native-paper';
-
-const Header = (props) => {
- 
+const Header = (props) => { 
   return (
     <Appbar.Header
     theme={{
@@ -13,7 +10,6 @@ const Header = (props) => {
     }}
     >
     <Appbar.Content style={{flexDirection:'row', colors:"white" ,justifyContent:"center"}} title={props.name} />
- 
   </Appbar.Header>
   );
 }
