@@ -1,24 +1,20 @@
 import React, { useState } from "react";
 import {Text, View,FlatList} from "react-native"
 import {TextInput,Button,Card} from "react-native-paper"
-import Header from "../components/Header";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Search =({navigation})=>{
+import Header from "../components/Header";
 
+const Search =({navigation})=>{
     const[city,setCity]= useState()
     const[cities,setCities]= useState([]);
     
     const FetchCity=(text)=>{
-      console.log("text is", text)
-         setCity(text)
         
       fetch("https://api.weather.com/v3/location/search?apiKey=6532d6454b8aa370768e63d6ba5a832e&language=en-US&query="+text+"&locationType=city&format=json")    
       .then(res=>res.json())    
       .then(data=>{    
-        console.log("dat is", data)
        setCities(data.location.address.slice(0,9))
-       console.log( "data is", data.location.address.slice(0,9))
     })
 
     }
