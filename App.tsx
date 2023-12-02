@@ -1,9 +1,9 @@
-import React from 'react';
-import {  Text,  StatusBar,} from 'react-native';
-import { Home, Search } from './src/pages';
+import { StatusBar,} from 'react-native';
 import {NavigationContainer} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+
+import { Home, Search } from './src/pages';
 
 const Stack = createBottomTabNavigator();
 
@@ -33,7 +33,7 @@ const App=()=>{
        tabBarActiveTintColor:"#00aaff"
       })}
       >
-        <Stack.Screen name="Home"  component={Home} initialParams={{city:"london"}} />
+        <Stack.Screen name="Home"  component={Home} initialParams={{city:"kuala lumpur"}} />
         <Stack.Screen name="Search" component={Search} />
       </Stack.Navigator>
     </NavigationContainer>
