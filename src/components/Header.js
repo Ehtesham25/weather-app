@@ -12,6 +12,6 @@ const Header = (props) => {
   <Appbar.Content style={{flexDirection:'row', colors:"white" ,justifyContent:"center"}} title={props.name} />
   </Appbar.Header>
   );
-}
+};
 
 export default Header;
