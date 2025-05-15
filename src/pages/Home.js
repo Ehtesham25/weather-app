@@ -13,7 +13,7 @@ const Home = props => {
     icon: 'loading..',
     descr: 'loading..',
   });
-
+ 
   useEffect(() => {
     getWeather();
   }, []);
