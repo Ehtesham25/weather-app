@@ -17,6 +17,7 @@ const Home = props => {
   useEffect(() => {
     getWeather();
   }, []);
+  
   const getWeather = async () => {
     let myCity = await AsyncStorage.getItem('newcity');
     if (!myCity) {
