@@ -4,7 +4,7 @@ import {TextInput,Button,Card} from "react-native-paper"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Header from "../components/Header";
-
+ 
 const Search =({navigation})=> {
     const[city,setCity]= useState()
     const[cities,setCities]= useState([]);
