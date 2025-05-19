@@ -9,7 +9,7 @@ const Stack = createBottomTabNavigator();
 
 const App=()=>{
   return(
-    <>
+    <> 
     <StatusBar barStyle="dark-content" backgroundColor="#00aaff"/>
     <NavigationContainer >
       <Stack.Navigator 
