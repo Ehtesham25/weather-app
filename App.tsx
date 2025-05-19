@@ -18,7 +18,6 @@ const App=()=>{
           let iconName
           if(route.name==="Home"){
             iconName='home-city'
-          
           }
           else if(route.name==="Search")
           {
