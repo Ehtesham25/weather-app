@@ -4,7 +4,7 @@ const Header = (props) => {
   return (
     <Appbar.Header
     theme={{
-        colors:{
+        colors:{ 
             primary:"#00aaff"
         }
     }}
